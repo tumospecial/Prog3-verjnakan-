@@ -1,4 +1,6 @@
-class Generator2 extends LivingCreature {
+var LivingCreature = require("./LivingCreature")
+
+module.exports = class Generator extends LivingCreature {
     constructor(x, y){
         super(x, y);
     
@@ -19,14 +21,16 @@ class Generator2 extends LivingCreature {
        this.getNewCoordinates();
        return super.chooseCell(character);
    }
-    Generacnel2() {
+
+    Generacnel() {
         var empty = random(this.chooseCell(0))
-        if (empty && gishatichArr.length == 0) {
+        if (empty && grassArr.length == 0) {
             var newX = empty[0]
             var newY = empty[1]
-            matrix[newY][newX] = 3
-            var gish = new Gishatich(newX, newY)
-            gishatichArr.push(gish)
+            matrix[newY][newX] = 1
+            var newGr = new Grass(newX, newY)
+            grassArr.push(newGr)
         }
     }
 }
+
