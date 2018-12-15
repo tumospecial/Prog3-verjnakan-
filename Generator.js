@@ -1,4 +1,6 @@
 var LivingCreature = require("./LivingCreature")
+var Grass = require("./Grass")
+
 
 module.exports = class Generator extends LivingCreature {
     constructor(x, y){
@@ -23,7 +25,8 @@ module.exports = class Generator extends LivingCreature {
    }
 
     Generacnel() {
-        var empty = random(this.chooseCell(0))
+        var array = this.chooseCell(0)
+        var empty = array[Math.floor(Math.random() * array.length)];
         if (empty && grassArr.length == 0) {
             var newX = empty[0]
             var newY = empty[1]

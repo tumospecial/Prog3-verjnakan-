@@ -22,7 +22,8 @@ module.exports = class Zombie extends LivingCreature {
    }
 
     move() {
-        var empty = random(this.chooseCell(0))
+        var array = this.chooseCell(0)
+        var empty = array[Math.floor(Math.random() * array.length)];
         this.energy--;
         if (empty) {
             var newX = empty[0]
@@ -35,7 +36,8 @@ module.exports = class Zombie extends LivingCreature {
         }
     }
     eat() {  //utel xot
-        var food = random(this.chooseCell(1))
+        var array = this.chooseCell(1)
+        var food = array[Math.floor(Math.random() * array.length)];
         if (food) {
             var newX = food[0]
             var newY = food[1]
@@ -54,7 +56,8 @@ module.exports = class Zombie extends LivingCreature {
         }
     }
     eat1() {  //utel xotaker
-        var food = random(this.chooseCell(2))
+        var array = this.chooseCell(2)
+        var food = array[Math.floor(Math.random() * array.length)];
         if (food) {
             var newX = food[0]
             var newY = food[1]
@@ -73,7 +76,8 @@ module.exports = class Zombie extends LivingCreature {
         }
     }
     eat2() {  //utel gishatich
-        var food = random(this.chooseCell(3))
+        var array = this.chooseCell(3)
+        var food = array[Math.floor(Math.random() * array.length)];
         if (food) {
             var newX = food[0]
             var newY = food[1]

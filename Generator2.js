@@ -1,4 +1,5 @@
 var LivingCreature = require("./LivingCreature")
+var Gishatich = require("./Gishatich")
 
 module.exports = class Generator2 extends LivingCreature {
     constructor(x, y){
@@ -22,7 +23,8 @@ module.exports = class Generator2 extends LivingCreature {
        return super.chooseCell(character);
    }
     Generacnel2() {
-        var empty = random(this.chooseCell(0))
+        var array = this.chooseCell(0)
+        var empty = array[Math.floor(Math.random() * array.length)];
         if (empty && gishatichArr.length == 0) {
             var newX = empty[0]
             var newY = empty[1]

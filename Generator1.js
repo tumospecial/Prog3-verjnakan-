@@ -1,4 +1,6 @@
 var LivingCreature = require("./LivingCreature")
+var Xotaker = require("./Xotaker")
+
 
 module.exports = class Generator1 extends LivingCreature {
     constructor(x, y){
@@ -22,7 +24,8 @@ module.exports = class Generator1 extends LivingCreature {
        return super.chooseCell(character);
    }
     Generacnel1() {
-        var empty = random(this.chooseCell(0))
+        var array = this.chooseCell(0)
+        var empty = array[Math.floor(Math.random() * array.length)];
         if (empty && xotakerArr.length == 0) {
             var newX = empty[0]
             var newY = empty[1]

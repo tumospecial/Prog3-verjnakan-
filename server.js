@@ -1,11 +1,19 @@
-var grassArr = [];
-var xotakerArr = [];
-var gishatichArr = [];
-var zombieArr = [];
-var generatorArr = [];
-var generator1Arr = [];
-var generator2Arr = [];
+grassArr = []; xotakerArr = []; gishatichArr = []; zombieArr = []; generatorArr = []; generator1Arr = []; generator2Arr = [];
 
+var express = require('express');
+var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
+
+app.use(express.static("."));
+app.get('/', function (req, res) {
+   res.redirect('index.html');
+});
+server.listen(3000);
+
+io.on('connection', function (socket) {
+})
 
 var Grass = require("./Grass")
 var Xotaker = require("./Xotaker")
@@ -16,12 +24,13 @@ var Generator1 = require("./Generator1")
 var Generator2 = require("./Generator2")
 
 
+
 function RadInt(min, max) {
     var z = Math.floor(Math.random() * (max - min + 1)) + min;
     return z;
 }
 
-var matrix = [];
+matrix = [];
 var n = 20
 var m = 20
 for (var i = 0; i <= n; ++i) {
@@ -116,7 +125,7 @@ for (var y = 0; y < matrix.length; ++y) {
 
 
 
-function drawUrish(){
+function drawUrish() {
 
     for (var i in grassArr) {
         grassArr[i].mult()
@@ -153,8 +162,12 @@ function drawUrish(){
     for (var i in generator2Arr) {
         generator2Arr[i].Generacnel2()
     }
+    io.sockets.emit("matrix", matrix);
+
 }
 
-setInterval(drawUrish, 200); 
+
+setInterval(drawUrish, 200);
+
 
 
