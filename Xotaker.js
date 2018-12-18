@@ -26,16 +26,20 @@ module.exports = class Xotaker extends LivingCreature {
     mult() {  //bazmanal
         var array = this.chooseCell(0)
         var empty = array[Math.floor(Math.random() * array.length)];
+
         if (weather == "amar") {
-            this.maxMulCount = 10;
-        }
-        if (weather == "garun") {
-            this.maxMulCount = 8;
-        }
-        else {
             this.maxMulCount = 12;
         }
-        if (empty && this.multiply > this.maxMulCount && weather != "dzmer") {
+        if (weather == "garun") {
+            this.maxMulCount = 9;
+        }
+        if (weather == "ashun") {
+            this.maxMulCount = 14;
+        }
+        if (weather == "dzmer") {
+            this.maxMulCount = 7;
+        }
+        if (empty && this.energy > 6 && weather != "dzmer") {
             var newX = empty[0]
             var newY = empty[1]
             matrix[newY][newX] = 2
