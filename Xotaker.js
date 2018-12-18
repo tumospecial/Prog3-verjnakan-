@@ -1,31 +1,41 @@
 var LivingCreature = require("./LivingCreature")
 
 module.exports = class Xotaker extends LivingCreature {
-    constructor(x, y){
+    constructor(x, y) {
         super(x, y);
         this.energy = 5;
+        this.maxMulCount = 7;
     }
-   getNewCoordinates() {
-       this.directions = [
-           [this.x - 1, this.y - 1],
-           [this.x, this.y - 1],
-           [this.x + 1, this.y - 1],
-           [this.x - 1, this.y],
-           [this.x + 1, this.y],
-           [this.x - 1, this.y + 1],
-           [this.x, this.y + 1],
-           [this.x + 1, this.y + 1]
-       ];
-   }
-   chooseCell(character) {
-       this.getNewCoordinates();
-       return super.chooseCell(character);
-   }
+    getNewCoordinates() {
+        this.directions = [
+            [this.x - 1, this.y - 1],
+            [this.x, this.y - 1],
+            [this.x + 1, this.y - 1],
+            [this.x - 1, this.y],
+            [this.x + 1, this.y],
+            [this.x - 1, this.y + 1],
+            [this.x, this.y + 1],
+            [this.x + 1, this.y + 1]
+        ];
+    }
+    chooseCell(character) {
+        this.getNewCoordinates();
+        return super.chooseCell(character);
+    }
 
     mult() {  //bazmanal
         var array = this.chooseCell(0)
         var empty = array[Math.floor(Math.random() * array.length)];
-        if (empty && this.energy > 12) {
+        if (weather == "amar") {
+            this.maxMulCount = 10;
+        }
+        if (weather == "garun") {
+            this.maxMulCount = 8;
+        }
+        else {
+            this.maxMulCount = 12;
+        }
+        if (empty && this.multiply > this.maxMulCount && weather != "dzmer") {
             var newX = empty[0]
             var newY = empty[1]
             matrix[newY][newX] = 2
@@ -33,6 +43,7 @@ module.exports = class Xotaker extends LivingCreature {
             xotakerArr.push(xt)
         }
     }
+    
 
     move() {  //sharjvel
         var array = this.chooseCell(0)
