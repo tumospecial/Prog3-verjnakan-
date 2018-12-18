@@ -3,6 +3,7 @@ var LivingCreature = require("./LivingCreature")
 module.exports = class Grass extends LivingCreature {
         constructor(x, y){
             super(x, y);
+            this.maxMulCount = 3;
         }
        getNewCoordinates() {
            this.directions = [
@@ -25,7 +26,14 @@ module.exports = class Grass extends LivingCreature {
         var array = this.chooseCell(0)
         var empty = array[Math.floor(Math.random() * array.length)];
         this.multiply++
-        if (empty && this.multiply > 3) {
+
+        if(weather == "amar" && "garun"){
+            this.maxMulCount = 1;
+        }
+        else {
+            this.maxMulCount = 3;
+        }
+        if (empty && this.multiply > this.maxMulCount && weather != "dzmer") {
             var newX = empty[0]
             var newY = empty[1]
             matrix[newY][newX] = 1

@@ -1,13 +1,15 @@
 var side = 20
 var socket = io();
-var m = 20 
+var m = 20
 var n = 20
+var weather = "garun";
+
 function setup() {
     frameRate(5);
     createCanvas(m * side, n * side);
     background('#acacac');
+    
 }
-
 function drawMatrix(matrix) {
 
     for (var y = 0; y < n; y++) {
@@ -26,16 +28,27 @@ function drawMatrix(matrix) {
                 fill("blue");
             }
             else if (matrix[y][x] == 5) {
-                fill("white");
+                fill("#778899");
             }
             else if (matrix[y][x] == 6) {
-                fill("white");
+                fill("#778899");
             }
             else if (matrix[y][x] == 7) {
-                fill("white");
+                fill("#778899");
             }
             else if (matrix[y][x] == 0) {
-                fill("#acacac");
+                if (weather == "garun") {
+                    fill("#9BF77E")
+                }
+                else if (weather == "amar") {
+                    fill("#F7A27E")
+                }
+                else if (weather == "ashun") {
+                    fill("#FF9DE9")
+                }
+                else if (weather == "dzmer") {
+                    fill("#D0E1F8")
+                }
             }
             rect(x * side, y * side, side, side)
 
@@ -44,6 +57,9 @@ function drawMatrix(matrix) {
 }
 
 socket.on("matrix", drawMatrix);
+socket.on("exanak", function (w) {
+    weather = w;
+});
 
 
 

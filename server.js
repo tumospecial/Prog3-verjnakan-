@@ -1,4 +1,5 @@
 grassArr = []; xotakerArr = []; gishatichArr = []; zombieArr = []; generatorArr = []; generator1Arr = []; generator2Arr = [];
+weather = "garun";
 
 var express = require('express');
 var app = express();
@@ -8,12 +9,11 @@ var io = require('socket.io')(server);
 
 app.use(express.static("."));
 app.get('/', function (req, res) {
-   res.redirect('index.html');
+    res.redirect('index.html');
 });
 server.listen(3000);
 
-io.on('connection', function (socket) {
-})
+io.on('connection', function (socket) { })
 
 var Grass = require("./Grass")
 var Xotaker = require("./Xotaker")
@@ -33,6 +33,7 @@ function RadInt(min, max) {
 matrix = [];
 var n = 20
 var m = 20
+
 for (var i = 0; i <= n; ++i) {
     matrix[i] = [];
 }
@@ -131,7 +132,6 @@ function drawUrish() {
         grassArr[i].mult()
     }
 
-
     for (var i in xotakerArr) {
         xotakerArr[i].eat()
         xotakerArr[i].move()
@@ -139,35 +139,54 @@ function drawUrish() {
         xotakerArr[i].die()
     }
 
-
-
     for (var i in gishatichArr) {
         gishatichArr[i].mult()
         gishatichArr[i].move()
         gishatichArr[i].eat()
         gishatichArr[i].die()
     }
+
     for (var i in zombieArr) {
         zombieArr[i].move()
         zombieArr[i].eat()
         zombieArr[i].eat1()
         zombieArr[i].eat2()
     }
+
     for (var i in generatorArr) {
         generatorArr[i].Generacnel()
     }
+
     for (var i in generator1Arr) {
         generator1Arr[i].Generacnel1()
     }
+
     for (var i in generator2Arr) {
         generator2Arr[i].Generacnel2()
     }
     io.sockets.emit("matrix", matrix);
 
+
+}
+function changeWeather() {
+    if (weather == "garun") {
+        weather = "amar"
+    }
+    else if (weather == "amar") {
+        weather = "ashun"
+    }
+    else if (weather == "ashun") {
+        weather = "dzmer"
+    }
+    else if (weather == "dzmer") {
+        weather = "garun"
+    }
+    io.sockets.emit("exanak", weather);    
+
 }
 
-
 setInterval(drawUrish, 200);
+setInterval(changeWeather, 3000);
 
 
 
