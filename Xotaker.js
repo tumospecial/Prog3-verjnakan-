@@ -39,7 +39,7 @@ module.exports = class Xotaker extends LivingCreature {
         if (weather == "dzmer") {
             this.maxMulCount = 7;
         }
-        if (empty && this.energy > 6 && weather != "dzmer") {
+        if (empty && this.energy > this.maxMulCount && weather != "dzmer") {
             var newX = empty[0]
             var newY = empty[1]
             matrix[newY][newX] = 2
