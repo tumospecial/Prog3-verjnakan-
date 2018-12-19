@@ -26,13 +26,14 @@ module.exports = class Xotaker extends LivingCreature {
     mult() {  //bazmanal
         var array = this.chooseCell(0)
         var empty = array[Math.floor(Math.random() * array.length)];
-
-        if (weather == "amar") {
-            this.maxMulCount = 12;
-        }
+        
         if (weather == "garun") {
             this.maxMulCount = 9;
         }
+        if (weather == "amar") {
+            this.maxMulCount = 12;
+        }
+
         if (weather == "ashun") {
             this.maxMulCount = 14;
         }
@@ -47,7 +48,7 @@ module.exports = class Xotaker extends LivingCreature {
             xotakerArr.push(xt)
         }
     }
-    
+
 
     move() {  //sharjvel
         var array = this.chooseCell(0)

@@ -1,31 +1,46 @@
 var LivingCreature = require("./LivingCreature")
 
 module.exports = class Gishatich extends LivingCreature {
-    constructor(x, y){
+    constructor(x, y) {
         super(x, y);
         this.energy = 8;
+        this.maxMulCount = 10;
     }
-   getNewCoordinates() {
-       this.directions = [
-           [this.x - 1, this.y - 1],
-           [this.x, this.y - 1],
-           [this.x + 1, this.y - 1],
-           [this.x - 1, this.y],
-           [this.x + 1, this.y],
-           [this.x - 1, this.y + 1],
-           [this.x, this.y + 1],
-           [this.x + 1, this.y + 1]
-       ];
-   }
-   chooseCell(character) {
-       this.getNewCoordinates();
-       return super.chooseCell(character);
-   }
+    getNewCoordinates() {
+        this.directions = [
+            [this.x - 1, this.y - 1],
+            [this.x, this.y - 1],
+            [this.x + 1, this.y - 1],
+            [this.x - 1, this.y],
+            [this.x + 1, this.y],
+            [this.x - 1, this.y + 1],
+            [this.x, this.y + 1],
+            [this.x + 1, this.y + 1]
+        ];
+    }
+    chooseCell(character) {
+        this.getNewCoordinates();
+        return super.chooseCell(character);
+    }
 
     mult() {
         var array = this.chooseCell(0)
         var empty = array[Math.floor(Math.random() * array.length)];
-        if (empty && this.energy > 10) {
+        
+        if (weather == "garun") {
+            this.maxMulCount = 10;
+        }
+        if (weather == "amar") {
+            this.maxMulCount = 13;
+        }
+
+        if (weather == "ashun") {
+            this.maxMulCount = 13;
+        }
+        if (weather == "dzmer") {
+            this.maxMulCount = 11;
+        }
+        if (empty && this.energy > this.maxMulCount && weather != "garun") {
             var newX = empty[0]
             var newY = empty[1]
             matrix[newY][newX] = 3

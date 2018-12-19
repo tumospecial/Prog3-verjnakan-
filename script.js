@@ -38,13 +38,13 @@ function drawMatrix(matrix) {
             }
             else if (matrix[y][x] == 0) {
                 if (weather == "garun") {
-                    fill("#9BF77E")
+                    fill("#DAFDC1")
                 }
                 else if (weather == "amar") {
-                    fill("#F7A27E")
+                    fill("#FC9393")
                 }
                 else if (weather == "ashun") {
-                    fill("#FF9DE9")
+                    fill("#FDDBC1")
                 }
                 else if (weather == "dzmer") {
                     fill("#D0E1F8")

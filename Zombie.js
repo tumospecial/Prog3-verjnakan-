@@ -1,31 +1,30 @@
 var LivingCreature = require("./LivingCreature")
 
 module.exports = class Zombie extends LivingCreature {
-    constructor(x, y){
+    constructor(x, y) {
         super(x, y);
     }
-   getNewCoordinates() {
-       this.directions = [
-           [this.x - 1, this.y - 1],
-           [this.x, this.y - 1],
-           [this.x + 1, this.y - 1],
-           [this.x - 1, this.y],
-           [this.x + 1, this.y],
-           [this.x - 1, this.y + 1],
-           [this.x, this.y + 1],
-           [this.x + 1, this.y + 1]
-       ];
-   }
-   chooseCell(character) {
-       this.getNewCoordinates();
-       return super.chooseCell(character);
-   }
+    getNewCoordinates() {
+        this.directions = [
+            [this.x - 1, this.y - 1],
+            [this.x, this.y - 1],
+            [this.x + 1, this.y - 1],
+            [this.x - 1, this.y],
+            [this.x + 1, this.y],
+            [this.x - 1, this.y + 1],
+            [this.x, this.y + 1],
+            [this.x + 1, this.y + 1]
+        ];
+    }
+    chooseCell(character) {
+        this.getNewCoordinates();
+        return super.chooseCell(character);
+    }
 
     move() {
         var array = this.chooseCell(0)
-        var empty = array[Math.floor(Math.random() * array.length)];
-        this.energy--;
-        if (empty) {
+        var empty = array[Math.floor.apply(Math.random() * array.length)];
+        if (empty && weather != "dzmer") {
             var newX = empty[0]
             var newY = empty[1]
             matrix[newY][newX] = 4
@@ -52,7 +51,7 @@ module.exports = class Zombie extends LivingCreature {
 
             this.x = newX
             this.y = newY
-            
+
         }
     }
     eat1() {  //utel xotaker
@@ -72,7 +71,7 @@ module.exports = class Zombie extends LivingCreature {
 
             this.x = newX
             this.y = newY
-            
+
         }
     }
     eat2() {  //utel gishatich
@@ -92,7 +91,7 @@ module.exports = class Zombie extends LivingCreature {
 
             this.x = newX
             this.y = newY
-            
+
         }
     }
 }
