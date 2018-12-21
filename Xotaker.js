@@ -26,6 +26,7 @@ module.exports = class Xotaker extends LivingCreature {
     mult() {  //bazmanal
         var array = this.chooseCell(0)
         var empty = array[Math.floor(Math.random() * array.length)];
+        xotakerQanakStat++;
         
         if (weather == "garun") {
             this.maxMulCount = 9;

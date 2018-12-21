@@ -191,10 +191,14 @@ setInterval(changeWeather, 3000);
 setInterval(printStat, 5000);
 
 xotQanakStat = 0;
+xotakerQanakStat = 0;
+gishatichQanakStat = 0;
+zombieQanakStat = 4;
+generatorQanakStat = 3;
 var jsonObj = { "info": [] };
 function printStat() {
     var file = "stat.json";
-    jsonObj.info.push({ "xot qanak": xotQanakStat, "xotaker qanak": 0 });
+    jsonObj.info.push({ "xot qanak": xotQanakStat, "xotaker qanak":xotakerQanakStat,"gishatich qanak":gishatichQanakStat,"zombie qanak": zombieQanakStat,"generator qanak": generatorQanakStat});
     fs.writeFileSync(file, JSON.stringify(jsonObj));
 
 }

@@ -26,6 +26,7 @@ module.exports = class Gishatich extends LivingCreature {
     mult() {
         var array = this.chooseCell(0)
         var empty = array[Math.floor(Math.random() * array.length)];
+        gishatichQanakStat++;
         
         if (weather == "garun") {
             this.maxMulCount = 10;
