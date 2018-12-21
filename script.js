@@ -4,16 +4,18 @@ var m = 20
 var n = 20
 var weather = "garun";
 
-function setup() {
+function setup() { 
+
     frameRate(5);
-    createCanvas(m * side, n * side);
-    background('#acacac');
+    createCanvas(500,500); 
+      background('#acacac');
+
     
 }
 function drawMatrix(matrix) {
 
-    for (var y = 0; y < n; y++) {
-        for (var x = 0; x < m; x++) {
+    for (var y = 0; y < matrix.length; y++) {
+        for (var x = 0; x < matrix[0].length; x++) {
             if (matrix[y][x] == 1) {
                 fill("green");
             }

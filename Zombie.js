@@ -23,7 +23,7 @@ module.exports = class Zombie extends LivingCreature {
 
     move() {
         var array = this.chooseCell(0)
-        var empty = array[Math.floor.apply(Math.random() * array.length)];
+        var empty = array[Math.floor(Math.random() * array.length)];
         if (empty && weather != "dzmer") {
             var newX = empty[0]
             var newY = empty[1]
@@ -31,13 +31,12 @@ module.exports = class Zombie extends LivingCreature {
             matrix[this.y][this.x] = 0
 
             this.x = newX
-            this.y = newY
-        }
+            this.y = newY        }
     }
     eat() {  //utel xot
         var array = this.chooseCell(1)
         var food = array[Math.floor(Math.random() * array.length)];
-        if (food) {
+        if (food && weather != "dzmer") {
             var newX = food[0]
             var newY = food[1]
             matrix[newY][newX] = 4
@@ -57,7 +56,7 @@ module.exports = class Zombie extends LivingCreature {
     eat1() {  //utel xotaker
         var array = this.chooseCell(2)
         var food = array[Math.floor(Math.random() * array.length)];
-        if (food) {
+        if (food && weather != "dzmer") {
             var newX = food[0]
             var newY = food[1]
             matrix[newY][newX] = 4
@@ -77,7 +76,7 @@ module.exports = class Zombie extends LivingCreature {
     eat2() {  //utel gishatich
         var array = this.chooseCell(3)
         var food = array[Math.floor(Math.random() * array.length)];
-        if (food) {
+        if (food && weather != "dzmer") {
             var newX = food[0]
             var newY = food[1]
             matrix[newY][newX] = 4
