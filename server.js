@@ -5,6 +5,7 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var fs = require('fs');
 
 
 app.use(express.static("."));
@@ -181,12 +182,21 @@ function changeWeather() {
     else if (weather == "dzmer") {
         weather = "garun"
     }
-    io.sockets.emit("exanak", weather);    
+    io.sockets.emit("exanak", weather);
 
 }
 
 setInterval(drawUrish, 200);
 setInterval(changeWeather, 3000);
+setInterval(printStat, 5000);
 
+xotQanakStat = 0;
+var jsonObj = { "info": [] };
+function printStat() {
+    var file = "stat.json";
+    jsonObj.info.push({ "xot qanak": xotQanakStat, "xotaker qanak": 0 });
+    fs.writeFileSync(file, JSON.stringify(jsonObj));
+
+}
 
 

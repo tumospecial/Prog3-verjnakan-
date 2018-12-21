@@ -34,6 +34,7 @@ module.exports = class Grass extends LivingCreature {
             this.maxMulCount = 1.5;
         }
         if (empty && this.multiply > this.maxMulCount && weather != "dzmer") {
+            xotQanakStat++;
             var newX = empty[0]
             var newY = empty[1]
             matrix[newY][newX] = 1
