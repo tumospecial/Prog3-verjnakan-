@@ -25,6 +25,7 @@ module.exports = class Generator2 extends LivingCreature {
     Generacnel2() {
         var array = this.chooseCell(0)
         var empty = array[Math.floor(Math.random() * array.length)];
+        generacnel2QanakStat++;
         if (empty && gishatichArr.length == 0 && weather != "dzmer") {
             var newX = empty[0]
             var newY = empty[1]

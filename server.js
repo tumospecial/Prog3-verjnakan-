@@ -195,12 +195,16 @@ xotakerQanakStat = 0;
 gishatichQanakStat = 0;
 zombieQanakStat = 4;
 generatorQanakStat = 3;
+generacnelQanakStat = 0;
+generacnel1QanakStat = 0;
+generacnel2QanakStat = 0;
 var jsonObj = { "info": [] };
 function printStat() {
     var file = "stat.json";
-    jsonObj.info.push({ "xot qanak": xotQanakStat, "xotaker qanak":xotakerQanakStat,"gishatich qanak":gishatichQanakStat,"zombie qanak": zombieQanakStat,"generator qanak": generatorQanakStat});
+    jsonObj.info.push({ "xot qanak": xotQanakStat, "xotaker qanak":xotakerQanakStat,"gishatich qanak":gishatichQanakStat,"zombie qanak": zombieQanakStat,"generator qanak": generatorQanakStat, "generacnel ":generacnelQanakStat, "generacnel1 ":generacnel1QanakStat, "generacnel2 ":generacnel2QanakStat});
     fs.writeFileSync(file, JSON.stringify(jsonObj));
 
 }
 
 
+ 
