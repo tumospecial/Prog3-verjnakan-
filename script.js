@@ -3,14 +3,16 @@ var socket = io();
 var m = 20
 var n = 20
 var weather = "garun";
+var button = document.getElementById('dekaynacra');
 
-function setup() { 
+
+function setup() {
 
     frameRate(5);
-    createCanvas(500,500); 
-      background('#acacac');
+    createCanvas(500, 500);
+    background('#acacac');
 
-    
+
 }
 function drawMatrix(matrix) {
 
@@ -62,6 +64,9 @@ socket.on("matrix", drawMatrix);
 socket.on("exanak", function (w) {
     weather = w;
 });
+
+
+
 
 
 

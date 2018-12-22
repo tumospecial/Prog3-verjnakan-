@@ -16,6 +16,7 @@ server.listen(3000);
 
 io.on('connection', function (socket) { })
 
+
 var Grass = require("./Grass")
 var Xotaker = require("./Xotaker")
 var Gishatich = require("./Gishatich")
@@ -201,10 +202,8 @@ generacnel2QanakStat = 0;
 var jsonObj = { "info": [] };
 function printStat() {
     var file = "stat.json";
-    jsonObj.info.push({ "xot qanak": xotQanakStat, "xotaker qanak":xotakerQanakStat,"gishatich qanak":gishatichQanakStat,"zombie qanak": zombieQanakStat,"generator qanak": generatorQanakStat, "generacnel ":generacnelQanakStat, "generacnel1 ":generacnel1QanakStat, "generacnel2 ":generacnel2QanakStat});
+    jsonObj.info.push({ "xot qanak": xotQanakStat, "xotaker qanak": xotakerQanakStat, "gishatich qanak": gishatichQanakStat, "zombie qanak": zombieQanakStat, "generator qanak": generatorQanakStat, "generacnel ": generacnelQanakStat, "generacnel1 ": generacnel1QanakStat, "generacnel2 ": generacnel2QanakStat });
     fs.writeFileSync(file, JSON.stringify(jsonObj));
 
 }
 
-
- 
